@@ -1,0 +1,19 @@
+version: "3.8" # versi docker-compose nya
+services: # container 2 nya
+  mysqlDB:
+    container_name: mysqlCore #fill to server input on login adminer
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    # restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=root
+    volumes:
+      - mysqlVolumeCore:/var/lib/mysql
+    networks:
+      mysqlNetworkCore:
+volumes:
+  mysqlVolumeCore:
+networks:
+  mysqlNetworkCore:

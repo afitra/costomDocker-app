@@ -1,0 +1,50 @@
+# version: "3.8"
+
+# services:
+#   mysqlTest:
+#     container_name: mysqlTest #fill to server input on login adminer
+#     image: mysql:5.7
+#     ports:
+#       - 3306:3306
+#     # restart: always
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=root
+#       - MYSQL_DATABASE=root
+#     volumes:
+#       - mysqlVolumeTest:/var/lib/mysql
+#     networks:
+#       mysqlNetworkTest:
+#   phpmyadmin:
+#     image: phpmyadmin:5.2.1-fpm-alpine
+#     container_name: phpmyadmin
+#     environment:
+#       - PMA_ARBITRARY=1
+#       - MYSQL_ROOT_PASSWORD=root
+#     depends_on:
+#       - mysqlTest
+#     # restart: always
+#     ports:
+#       - 8080:80
+
+# volumes:
+#   mysqlVolumeTest:
+# networks:
+#   mysqlNetworkTest:
+
+
+version: '3.8'
+
+services:
+  phpmyadmin:
+    container_name: phpMyAdmin
+    image: phpmyadmin:5.2.1
+    # restart: always
+    ports:
+      - 3600:3600 # port docker jika costom sesuai APACHE_PORT default 80
+    environment:
+      - PMA_ARBITRARY=1
+      - APACHE_PORT=3600
+    networks:
+      - phpMyAdminNetworkCore
+networks:
+  phpMyAdminNetworkCore:

@@ -1,0 +1,19 @@
+version: "2" # versi docker-compose nya
+services: # container 2 nya
+  redisDB:
+    container_name: redisCore
+    image: redis:7.0.8-alpine
+    ports:
+      - "6379:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - redisVolumeCore1:/usr/local/etc/redis/redis.conf
+      - redisVolumeCore2:/data
+    networks:
+      - redisNetworkCore
+volumes:
+  redisVolumeCore1:
+  redisVolumeCore2:
+networks:
+  redisNetworkCore:

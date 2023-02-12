@@ -1,0 +1,19 @@
+version: "3.8" # versi docker-compose nya
+services: # container 2 nya
+  postgresDB:
+    container_name: postgresCore
+    image: postgres:9.6-alpine
+    ports:
+      - 5432:5432
+    # restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - postgresVolumeCore:/var/lib/postgresql/data
+    networks:
+      postgresNetworkCore:
+volumes:
+  postgresVolumeCore:
+networks:
+  postgresNetworkCore:

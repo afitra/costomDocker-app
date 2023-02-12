@@ -1,0 +1,15 @@
+version: "3.8" # versi docker-compose nya
+services: # container 2 nya
+  adminer:
+    image: adminer:4.8.1
+    container_name: adminer
+    # restart: always
+    ports:
+      - 3500:8080
+    networks:
+      - mysqlNetworkCore
+      - postgresNetworkCore
+networks:
+  mysqlNetworkCore:
+  postgresNetworkCore:
+

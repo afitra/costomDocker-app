@@ -1,0 +1,23 @@
+version: "3.7" # versi docker-compose nya
+services: # container 2 nya
+  pgAdmin:
+    container_name: pgAdmin
+    image: dpage/pgadmin4:6.14
+    # restart: always
+    ports:
+      - 9002:9002
+    environment:
+      PGADMIN_LISTEN_PORT: 9002
+      PGADMIN_DEFAULT_EMAIL: root@mail.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    volumes:
+      - pgAdmin:/var/lib/pgadmin
+      - pgAdmin:/certs/server.cert
+      - pgAdmin:/certs/server.key
+      - pgAdmin:/pgadmin4/servers.json
+    networks:
+      pgAdminNetwork:
+volumes:
+  pgAdmin:
+networks:
+  pgAdminNetwork:
