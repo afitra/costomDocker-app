@@ -1,0 +1,13 @@
+version: "3.8" # versi docker-compose nya
+services: # container 2 nya
+  adminerTes:
+    image: adminer:4.8.1
+    container_name: tes
+    # restart: always
+    ports:
+      - 4500:8080
+    networks:
+      - tesNetworkCore
+networks:
+  tesNetworkCore:
+

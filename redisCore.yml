@@ -1,0 +1,19 @@
+version: "3.8" # versi docker-compose nya
+services: # container 2 nya
+  redisCore:
+    container_name: redisCore
+    image: redis:7.0.8-alpine
+    ports:
+      - "${REDIS_EXPOSE_PORT}:${REDIS_DOCKER_PORT}"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      # - redisVolumeCore1:/usr/local/etc/redis/redis.conf
+      - redisVolumeCore:/data
+    networks:
+      - redisNetworkCore
+volumes:
+  # redisVolumeCore1:
+  redisVolumeCore:
+networks:
+  redisNetworkCore:

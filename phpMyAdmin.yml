@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  phpmyadmin:
+    container_name: phpMyAdmin
+    image: phpmyadmin:5.2.1
+    # restart: always
+    ports:
+      - ${PHPMYADMIN_EXPOSE_PORT}:${PHPMYADMIN_DOCKER_PORT} # port docker jika costom sesuai APACHE_PORT default 80
+    environment:
+      - PMA_ARBITRARY=1
+      - APACHE_PORT=${PHPMYADMIN_DOCKER_PORT}
+      - PMA_PORT=${PHPMYADMIN_MYSQL_PORT}
+      - PMA_HOST=${PHPMYADMIN_DEFAULT_HOST}
+    networks:
+      - phpMyAdminNetworkCore
+networks:
+  phpMyAdminNetworkCore:

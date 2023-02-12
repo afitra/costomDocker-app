@@ -1,0 +1,26 @@
+version: "3.8" # versi docker-compose nya
+services: # container 2 nya
+  mysqlCore:
+    container_name: mysqlCore #fill to server input on login adminer
+    image: mysql:5.7
+    ports:
+      - ${MYSQL_EXPOSE_PORT}:${MYSQL_DOCKER_PORT}
+    # restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DEFAULT_DATABASE}
+      - MYSQL_TCP_PORT=${MYSQL_DOCKER_PORT}
+      - MYSQL_USER=${MYSQL_PUBLIC_USERNAME} # public user mysql
+      - MYSQL_PASSWORD=${MYSQL_PUBLIC_PASSWORD} # public password user mysql
+      # - MYSQL_HOST=172.18.0.1
+      # - MYSQL_PORT=3307
+    # extra_hosts:
+    #   - "host.docker.internal:172.18.0.1"
+    volumes:
+      - mysqlVolumeCore:/var/lib/mysql
+    networks:
+      mysqlNetworkCore:
+volumes:
+  mysqlVolumeCore:
+networks:
+  mysqlNetworkCore:
