@@ -1,0 +1,19 @@
+version: "3.8" # versi docker-compose nya
+services: # container 2 nya
+  adminer:
+    image: dbeaver/cloudbeaver:22.3.4
+    container_name: cloudbeaver
+    # restart: always
+    ports:
+      - 3700:8978
+    volumes:
+      - cloudbeaverVolume:/opt/cloudbeaver/workspace
+    networks:
+      - mysqlNetworkCore
+      - postgresNetworkCore  
+volumes:
+  cloudbeaverVolume:
+networks:
+  mysqlNetworkCore:
+  postgresNetworkCore:
+
