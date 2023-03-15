@@ -16,7 +16,7 @@
  
 
 ### Installation
-
+    - create and set `.env` file , you can use template on file `.env.example`
     - to create caontainer run ` docker-compose -f file_name.yml up -d `
     - to delete caontainer run ` docker-compose -f file_name.yml down `
  
@@ -39,7 +39,7 @@ for mac os, if you access db container and you get error when use example `local
 
 you can use `nginx` or `apache`  to support `ssl` or ` https ` and `testing domain` for your `local machine` .  if you `lazy people` you can use `laravel-valet`
 
-| site              | ssl  | url                     | host                  |
+| site              | ssl  | testing domain          | host locally          |
 |-------------------|------|-------------------------|-----------------------|
 | cloudbeaver       | true | https://cloudbeaver.dev | http://localhost:3700 |
 | adminer for mysql | true | https://my.adminer.dev  | http://localhost:3500 |
