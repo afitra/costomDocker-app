@@ -8,12 +8,11 @@ services: # container 2 nya
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      # - redisVolumeCore1:/usr/local/etc/redis/redis.conf
+      - redisVolumeCore:/usr/local/etc/redis/redis.conf
       - redisVolumeCore:/data
     networks:
       - redisNetworkCore
 volumes:
-  # redisVolumeCore1:
   redisVolumeCore:
 networks:
   redisNetworkCore:
