@@ -1,0 +1,32 @@
+2023-09-03 11:00:43.20 Server      Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5021126) - 14.0.3460.9 (X64) 
+	Jan 25 2023 08:42:43 
+	Copyright (C) 2017 Microsoft Corporation
+	Express Edition (64-bit) on Linux (Ubuntu 18.04.6 LTS)
+2023-09-03 11:00:43.20 Server      UTC adjustment: 0:00
+2023-09-03 11:00:43.20 Server      (c) Microsoft Corporation.
+2023-09-03 11:00:43.20 Server      All rights reserved.
+2023-09-03 11:00:43.21 Server      Server process ID is 344.
+2023-09-03 11:00:43.21 Server      Logging SQL Server messages in file '/var/opt/mssql/log/errorlog'.
+2023-09-03 11:00:43.21 Server      Registry startup parameters: 
+	 -d /var/opt/mssql/data/master.mdf
+	 -l /var/opt/mssql/data/mastlog.ldf
+	 -e /var/opt/mssql/log/errorlog
+2023-09-03 11:00:43.21 Server      SQL Server detected 1 sockets with 1 cores per socket and 1 logical processors per socket, 1 total logical processors; using 1 logical processors based on SQL Server licensing. This is an informational message; no user action is required.
+2023-09-03 11:00:43.23 Server      SQL Server is starting at normal priority base (=7). This is an informational message only. No user action is required.
+2023-09-03 11:00:43.23 Server      Detected 1588 MB of RAM. This is an informational message; no user action is required.
+2023-09-03 11:00:43.24 Server      Using conventional memory in the memory manager.
+2023-09-03 11:00:43.24 Server      Page exclusion bitmap is enabled.
+2023-09-03 11:00:43.33 Server      Buffer pool extension is already disabled. No action is necessary. 
+2023-09-03 11:00:43.46 Server      InitializeExternalUserGroupSid failed. Implied authentication will be disabled.
+2023-09-03 11:00:43.46 Server      Implied authentication manager initialization failed. Implied authentication will be disabled.
+2023-09-03 11:00:43.47 Server      Successfully initialized the TLS configuration. Allowed TLS protocol versions are ['1.0 1.1 1.2']. Allowed TLS ciphers are ['ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA'].
+2023-09-03 11:00:43.52 Server      Query Store settings initialized with enabled = 1, 
+2023-09-03 11:00:43.54 Server      The maximum number of dedicated administrator connections for this instance is '1'
+2023-09-03 11:00:43.53 Server      Node configuration: node 0: CPU mask: 0x0000000000000001:0 Active CPU mask: 0x0000000000000001:0. This message provides a description of the NUMA configuration for this computer. This is an informational message only. No user action is required.
+2023-09-03 11:00:43.56 Server      Using dynamic lock allocation.  Initial allocation of 2500 Lock blocks and 5000 Lock Owner blocks per node.  This is an informational message only.  No user action is required.
+2023-09-03 11:00:43.58 Server      In-Memory OLTP initialized on lowend machine.
+2023-09-03 11:00:43.63 Server      Database Instant File Initialization: enabled. For security and performance considerations see the topic 'Database Instant File Initialization' in SQL Server Books Online. This is an informational message only. No user action is required.
+2023-09-03 11:00:43.66 Server      Software Usage Metrics is disabled.
+2023-09-03 11:00:43.69 spid6s      Starting up database 'master'.
+2023-09-03 11:00:43.75 spid6s      Error: 948, Severity: 20, State: 1.
+2023-09-03 11:00:43.75 spid6s      The database 'master' cannot be opened because it is version 957. This server supports version 869 and earlier. A downgrade path is not supported.

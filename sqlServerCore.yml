@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlServerCore
+    environment:
+      - SA_PASSWORD=${SQL_SERVER_PASSWORD}
+      - ACCEPT_EULA=Y
+      # - MSSQL_PID=Express
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - "${SQL_SERVER_EXPOSE_PORT}:${SQL_SERVER_DOCKER_PORT}"
+    volumes:
+      - sql_server_data:/var/opt/mssql
+volumes:
+  sql_server_data:
+    driver: local
+
+# docker exec -it sqlServerCore /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P dockerStrongPwd123
