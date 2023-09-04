@@ -1,0 +1,6 @@
+FROM mcr.microsoft.com/mssql/server:2022-latest
+
+# Copy custom SQL Server configuration file
+COPY ./sqlServer-config /usr/config
+RUN chmod +x /usr/config/configure-sql.sh
+RUN /bin/bash /usr/config/configure-sql.sh

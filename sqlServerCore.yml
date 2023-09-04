@@ -6,7 +6,7 @@ services:
     environment:
       - SA_PASSWORD=${SQL_SERVER_PASSWORD}
       - ACCEPT_EULA=Y
-      # - MSSQL_PID=Express
+      - MSSQL_PID=Express
     cap_add:
       - SYS_PTRACE
     ports:
@@ -17,4 +17,19 @@ volumes:
   sql_server_data:
     driver: local
 
-# docker exec -it sqlServerCore /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P dockerStrongPwd123
+# # docker exec -it sqlServerCore /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P dockerStrongPwd123
+
+# version: '3.9'
+# services:
+#   sql-server:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile.sqlServer  # Menggunakan Dockerfile kustom
+#     container_name: sqlServerCore
+#     environment:
+#       SA_PASSWORD: ${SQL_SERVER_PASSWORD}  # Ganti dengan kata sandi yang Anda inginkan
+#       ACCEPT_EULA: "Y"
+#     ports:
+#       - "${SQL_SERVER_EXPOSE_PORT}:${SQL_SERVER_DOCKER_PORT}"
+#     volumes:
+#       - ./sqlServer-config:/usr/config  # Mengaitkan direktori konfigurasi kustom
