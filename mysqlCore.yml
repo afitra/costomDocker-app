@@ -4,7 +4,7 @@ services: # container 2 nya
     container_name: mysqlCore #fill to server input on login adminer
     image: mysql:5.7
     ports:
-      - ${MYSQL_EXPOSE_PORT}:${MYSQL_DOCKER_PORT}
+      - "${MYSQL_EXPOSE_PORT}:${MYSQL_DOCKER_PORT}"
     # restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}

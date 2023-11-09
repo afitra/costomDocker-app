@@ -4,6 +4,7 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sqlServerCore
     environment:
+      - SA_USER=${SQL_SERVER_USER} 
       - SA_PASSWORD=${SQL_SERVER_PASSWORD}
       - ACCEPT_EULA=Y
       - MSSQL_PID=Express

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  redis:
+    image: redis:7.0.8-alpine
+    container_name: my-redis
+    ports:
+      - "6378:6379"
