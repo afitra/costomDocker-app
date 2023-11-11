@@ -8,6 +8,7 @@ services:
       - SA_PASSWORD=${SQL_SERVER_PASSWORD}
       - ACCEPT_EULA=Y
       - MSSQL_PID=Express
+      - MSSQL_TCP_PORT=${SQL_SERVER_DOCKER_PORT}
     cap_add:
       - SYS_PTRACE
     ports:
