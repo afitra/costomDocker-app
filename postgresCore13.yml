@@ -1,0 +1,21 @@
+version: "3.8" # versi docker-compose nya
+services: # container 2 nya
+  postgresCore:
+    container_name: postgresCore13
+    image: postgres:13-alpine
+    ports:
+      - ${POSTGRES_EXPOSE_PORT}:${POSTGRES_DOCKER_PORT}
+    # restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGPORT=${POSTGRES_DOCKER_PORT}
+    volumes:
+      - postgresVolumeCore13:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+    networks:
+      postgresNetworkCore13:
+volumes:
+  postgresVolumeCore13:
+networks:
+  postgresNetworkCore13:

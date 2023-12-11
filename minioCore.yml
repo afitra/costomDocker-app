@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  minio:
+    image: minio/minio
+    container_name: minioCore
+    ports:
+      - "3001:9000"
+      - "3002:9001"
+    environment:
+      - MINIO_ACCESS_KEY=V4UNOZFZNI9BFREWW1GV
+      - MINIO_SECRET_KEY=hYwVIwvmGGPtJO2CL3GOpAARvIiuPHVkNfuuiMWW
+      - MINIO_ROOT_USER=masoud
+      - MINIO_ROOT_PASSWORD=Strong#Pass#2022
+      - MINIO_BROWSER=on
+      - MINIO_REGION=automatic
+      - MINIO_ENDPOINT=https://is3.cloudhost.id/tesupload
+      - MINIO_STORAGE_CLASS=erasure
+    volumes:
+      - minioCore:/data
+    command: server --console-address ":9001" /data
+
+volumes:
+  minioCore: {}
