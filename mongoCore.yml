@@ -71,7 +71,7 @@ services:
       ME_CONFIG_MONGODB_SERVER: mongoCore
       ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_USERNAME}
       ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_PASSWORD}
-
+    network_mode: bridge
 volumes:
   mongodb_data:
     driver: local

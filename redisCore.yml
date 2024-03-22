@@ -6,13 +6,13 @@ services: # container 2 nya
     ports:
       - "${REDIS_EXPOSE_PORT}:${REDIS_DOCKER_PORT}"
     environment:
-      - ALLOW_EMPTY_PASSWORD=yes
+      # - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
     volumes:
       - redisVolumeCore:/usr/local/etc/redis/redis.conf
       - redisVolumeCore:/data
-    networks:
-      - redisNetworkCore
+    network_mode: bridge
+    
 volumes:
   redisVolumeCore:
-networks:
-  redisNetworkCore:
+ 

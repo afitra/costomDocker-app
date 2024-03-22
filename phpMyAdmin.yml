@@ -11,7 +11,8 @@ services:
       - APACHE_PORT=${PHPMYADMIN_DOCKER_PORT}
       - PMA_PORT=${PHPMYADMIN_MYSQL_PORT}
       - PMA_HOST=${PHPMYADMIN_DEFAULT_HOST}
-    networks:
-      - phpMyAdminNetworkCore
-networks:
-  phpMyAdminNetworkCore:
+    network_mode: bridge
+#     networks:
+#       - phpMyAdminNetworkCore
+# networks:
+#   phpMyAdminNetworkCore:

@@ -12,9 +12,10 @@ services: # container 2 nya
       - PGPORT=${POSTGRES_DOCKER_PORT}
     volumes:
       - postgresVolumeCore:/var/lib/postgresql/data
-    networks:
-      postgresNetworkCore:
+    network_mode: bridge
+    # networks:
+    #   postgresNetworkCore:
 volumes:
   postgresVolumeCore:
-networks:
-  postgresNetworkCore:
+# networks:
+#   postgresNetworkCore:

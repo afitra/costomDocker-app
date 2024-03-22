@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  krakend:
+    image: devopsfaith/krakend:latest
+    container_name: krakendAPI
+    ports:
+      - "${KRAKEND_EXPOSE_PORT}:${KRAKEND_DOCKER_PORT}"
+    volumes:
+      - krakendVolumeCore:/etc/krakend
+volumes:
+  krakendVolumeCore:

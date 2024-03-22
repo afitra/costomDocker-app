@@ -13,9 +13,10 @@ services: # container 2 nya
     volumes:
       - postgresVolumeCore13:/var/lib/postgresql/data
       - ./postgresql.conf:/etc/postgresql/postgresql.conf
-    networks:
-      postgresNetworkCore13:
+    network_mode: bridge
+    # networks:
+    #   postgresNetworkCore13:
 volumes:
   postgresVolumeCore13:
-networks:
-  postgresNetworkCore13:
+# networks:
+#   postgresNetworkCore13:
