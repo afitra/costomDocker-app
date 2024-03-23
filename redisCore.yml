@@ -2,7 +2,7 @@ version: "3.8" # versi docker-compose nya
 services: # container 2 nya
   redisCore:
     container_name: redisCore
-    image: redis:7.0.8-alpine
+    image: redis:7.2.4-alpine
     ports:
       - "${REDIS_EXPOSE_PORT}:${REDIS_DOCKER_PORT}"
     environment:
