@@ -1,7 +1,7 @@
 version: '3'
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:latest
+    image: confluentinc/cp-zookeeper:7.6.1
     container_name: zookeeperCore
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
@@ -10,12 +10,13 @@ services:
       - 22181:2181
   
   kafka:
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.6.1
     container_name: kafka1Core
     depends_on:
       - zookeeper
     ports:
       - 29092:29092
+    network_mode: bridge
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeperCore:2181
@@ -24,30 +25,30 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_SOCKET_REQUEST_MAX_BYTES: 104857600  # 100 MB
-      KAFKA_SOCKET_TIMEOUT_MS: 60000  # 60 seconds
-
-  kafka-2:  # Nama baru untuk layanan Kafka kedua
-    image: confluentinc/cp-kafka:latest
-    container_name: kafka2Core
-    depends_on:
-      - zookeeper
-    ports:
-      - 29093:29093  # Port baru untuk Kafka kedua
-    environment:
-      KAFKA_BROKER_ID: 2  # Broker ID berbeda dari Kafka pertama
-      KAFKA_ZOOKEEPER_CONNECT: zookeeperCore:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka2Core:9093,PLAINTEXT_HOST://localhost:29093
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_SOCKET_REQUEST_MAX_BYTES: 104857600  # 100 MB
-      KAFKA_SOCKET_TIMEOUT_MS: 60000  # 60 seconds
-
+      KAFKA_SOCKET_TIMEOUT_MS: 5000  # 5 seconds
+  # kafka-2:  # Nama baru untuk layanan Kafka kedua
+  #   image: confluentinc/cp-kafka:7.6.1
+  #   container_name: kafka2Core
+  #   depends_on:
+  #     - zookeeper
+  #   ports:
+  #     - 29093:29093  # Port baru untuk Kafka kedua
+  #   network_mode: bridge
+  #   environment:
+  #     KAFKA_BROKER_ID: 2  # Broker ID berbeda dari Kafka pertama
+  #     KAFKA_ZOOKEEPER_CONNECT: zookeeperCore:2181
+  #     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka2Core:9093,PLAINTEXT_HOST://localhost:29093
+  #     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+  #     KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+  #     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  #     KAFKA_SOCKET_REQUEST_MAX_BYTES: 104857600  # 100 MB
+  #     KAFKA_SOCKET_TIMEOUT_MS: 10000  # 60 seconds
   kafka-ui:
     image: provectuslabs/kafka-ui:master
     container_name: kafkaUICore
     ports:
       - "6002:8080"
+    network_mode: bridge
     environment:
       KAFKA_CLUSTERS_0_NAME: local
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka1Core:9092,kafka2Core:9093"
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka1Core:9092"

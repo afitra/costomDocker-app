@@ -6,6 +6,7 @@ services:
     ports:
       - "8080:8080"
     # restart: always
+    network_mode: bridge
     environment:
       - KAFKA_CLUSTERS_0_NAME=local
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafkaCore:9092
