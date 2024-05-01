@@ -3,7 +3,7 @@ services:
   krakend:
     image: devopsfaith/krakend:latest
     container_name: krakendAPI
-    network_mode: bridge
+    
     ports:
       - "${KRAKEND_EXPOSE_PORT}:${KRAKEND_DOCKER_PORT}"
     volumes:

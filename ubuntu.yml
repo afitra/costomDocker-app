@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  ubuntu_server:
+    image: ubuntu:22.04
+    container_name: ubuntu_server
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - ubuntu_volume:/data
+
+volumes:
+  ubuntu_volume:

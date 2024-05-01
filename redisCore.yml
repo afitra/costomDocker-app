@@ -11,7 +11,7 @@ services: # container 2 nya
     volumes:
       - redisVolumeCore:/usr/local/etc/redis/redis.conf
       - redisVolumeCore:/data
-    network_mode: bridge
+    
     
 volumes:
   redisVolumeCore:

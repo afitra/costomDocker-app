@@ -18,7 +18,7 @@ services: # container 2 nya
     #   - "host.docker.internal:172.18.0.1"
     volumes:
       - mysqlVolumeCore:/var/lib/mysql
-    network_mode: bridge
+    
     # networks:
     #   mysqlNetworkCore:
 volumes:

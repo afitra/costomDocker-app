@@ -16,7 +16,7 @@ services:
       - sonarQubeVolumeCore:/opt/sonarqube/extensions
       - sonarQubeVolumeCore:/opt/sonarqube/logs
       - sonarQubeVolumeCore:/opt/sonarqube/temp
-    network_mode: bridge
+    
 networks:
   sonarNetworkCore:
     driver: bridge

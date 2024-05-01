@@ -10,15 +10,8 @@ services: # container 2 nya
       - cloudbeaverVolume:/opt/cloudbeaver/workspace
     extra_hosts:
       - "host.docker.internal:172.18.0.1"
-    network_mode: bridge
-    # networks:
-    #   - mysqlNetworkCore
-    #   - postgresNetworkCore  
 volumes:
   cloudbeaverVolume:
-# networks:
-#   mysqlNetworkCore:
-#   postgresNetworkCore:
 
 
 

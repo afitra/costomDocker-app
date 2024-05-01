@@ -15,7 +15,7 @@ services: # container 2 nya
       - pgAdmin:/certs/server.cert
       - pgAdmin:/certs/server.key
       - pgAdmin:/pgadmin4/servers.json
-    network_mode: bridge
+    
     # networks:
     #   pgAdminNetwork:
 volumes:

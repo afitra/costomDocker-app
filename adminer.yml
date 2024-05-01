@@ -6,12 +6,7 @@ services: # container 2 nya
     restart: always
     ports:
       - ${ADMINER_EXPOSE_PORT}:${ADMINER_DOCKER_PORT}
-    network_mode: bridge
-    #   - mysqlNetworkCore
-    #   - postgresNetworkCore
 volumes:
   adminerVolume:
-# networks:
-#   mysqlNetworkCore:
-#   postgresNetworkCore:
-
+networks:
+  aplikasi_lokal:
